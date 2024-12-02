@@ -1,0 +1,7 @@
+.form-cadastro {
+    background-color: #e9e9e9; /* Cinza claro */
+    padding: 20px;
+    border-radius: 8px;
+    margin: 50px auto; /* Centraliza o formulário */
+    max-width: 800px; /* Define uma largura máxima */
+  }

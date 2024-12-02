@@ -1,0 +1,58 @@
+body {
+  font-family: sans-serif;
+  /* Define a fonte */
+}
+
+.container-principal {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  box-sizing: border-box;
+}
+.container-interno {
+  background-color: #ccc;
+  padding: 20px;
+  margin-top: 20px;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  /* Usa flexbox para facilitar o layout de colunas */
+  flex-wrap: nowrap;
+  /* Impede que as colunas quebrem para a próxima linha */
+}
+
+.container > div { /* Seleciona os elementos filhos diretos de .container */
+  text-align: left; /* Alinha o texto à esquerda dentro dos itens */
+}
+
+.column {
+  flex: 1;
+  /* Cada coluna ocupa a mesma largura */
+  padding: 20px;
+  /* Adiciona espaço interno */
+  border: 1px solid #ccc;
+  /* Adiciona uma borda para melhor visualização */
+  text-align: center;
+  /* Centraliza o texto dentro de cada coluna */
+}
+.down {
+  flex: 1;
+  /* Cada coluna ocupa a mesma largura */
+  padding: 20px;
+  /* Adiciona espaço interno */
+  border: 1px solid #ccc;
+  /* Adiciona uma borda para melhor visualização */
+  text-align: center;
+  /* Centraliza o texto dentro de cada coluna */
+}
+
+.profile-image {
+  float: left; /* Faz a imagem flutuar para a esquerda */
+  margin-right: 20px; /* Espaço entre a imagem e o texto */
+  max-width: 150px; /* Ajuste conforme necessário */
+  height: auto;
+}

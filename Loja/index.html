@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Carrinho de Compras</title>
+
+<link rel="stylesheet" href="Css/visual.css">
+</head>
+<body>
+
+<h1>Produtos do MIIITTTOOOORRRR VORAIIIIIIIIIIIISSSS</h1>
+<div id="products">
+  <div class="product">
+    <h2>Livro</h2>
+    <p>Preco: R$ 69,90</p>
+    <button onclick="addToCart(1, 'Livro', 69.90)">Adicionar ao Carrinho</button>
+  </div>
+  <div class="product">
+    <h2>Power bank</h2>
+    <p>Preco: R$ 104,50</p>
+    <button onclick="addToCart(2, 'Power Bank', 104.50)">Adicionar ao Carrinho</button>
+  </div>
+  <div class="product">
+    <h2>Alexa</h2>
+    <p>Preco: R$ 932,00</p>
+    <button onclick="addToCart(3, 'Alexa', 932.00)">Adicionar ao Carrinho</button>
+  </div>
+  <div class="product">
+    <h2>Celular</h2>
+    <p>Preco: R$ 3478,00</p>
+    <button onclick="addToCart(4, 'Celular', 3478.00)">Adicionar ao Carrinho</button>
+  </div>
+  <div class="product">
+    <h2>Maquina de lavar</h2>
+    <p>Preco: R$ 1.299,99</p>
+    <button onclick="addToCart(5, 'Máquina de lavar', 1299.99)">Adicionar ao Carrinho</button>
+  </div>
+  <div class="product">
+    <h2>Caderno</h2>
+    <p>Preco: R$ 25,50</p>
+    <button onclick="addToCart(6, 'Power Bank', 25.50)">Adicionar ao Carrinho</button>
+  </div>
+  <div class="product">
+    <h2>Tablet</h2>
+    <p>Preco: R$ 1500,00</p>
+    <button onclick="addToCart(7, 'Tablet', 1500.00)">Adicionar ao Carrinho</button>
+  </div>
+  <div class="product">
+    <h2>Camiseta</h2>
+    <p>Preco: R$ 59,90</p>
+    <button onclick="addToCart(8, 'Camiseta', 59.90)">Adicionar ao Carrinho</button>
+  </div>
+  <div class="product">
+    <h2>Pc</h2>
+    <p>Preco: R$ 6000,00</p>
+    <button onclick="addToCart(9, 'Pc', 1500.00)">Adicionar ao Carrinho</button>
+  </div>
+  <div class="product">
+    <h2>Moletom</h2>
+    <p>Preco: R$ 59,90</p>
+    <button onclick="addToCart(10, 'Moletom', 59.90)">Adicionar ao Carrinho</button>
+  </div>
+  <div class="product">
+    <h2>Shorts</h2>
+    <p>Preco: R$ 1500,00</p>
+    <button onclick="addToCart(11, 'Shorts', 1500.00)">Adicionar ao Carrinho</button>
+  </div>
+  <div class="product">
+    <h2>Humidificador</h2>
+    <p>Preco: R$ 59,90</p>
+    <button onclick="addToCart(12, 'Humidificador', 59.90)">Adicionar ao Carrinho</button>
+  </div>
+  <div class="product">
+    <h2>Caneta Azul</h2>
+    <p>Preco: R$ 6,00</p>
+    <button onclick="addToCart(13, 'Caneta Azul', 6.00)">Adicionar ao Carrinho</button>
+  </div>
+  <div class="product">
+    <h2>Corretivo em fita</h2>
+    <p>Preco: R$ 9,90</p>
+    <button onclick="addToCart(14, 'Corretivo em fita', 9.90)">Adicionar ao Carrinho</button>
+  </div>
+  <div class="product">
+    <h2>Faca de cozinha</h2>
+    <p>Preco: R$ 150,00</p>
+    <button onclick="addToCart(15, 'Faca de cozinha', 150.00)">Adicionar ao Carrinho</button>
+  </div>
+  <div class="product">
+    <h2>Skate</h2>
+    <p>Preco: R$ 299,99</p>
+    <button onclick="addToCart(16, 'Skate', 299.99)">Adicionar ao Carrinho</button>
+  </div>
+  <div class="product">
+    <h2>Tenis</h2>
+    <p>Preco: R$ 1000,00</p>
+    <button onclick="addToCart(17, 'Tênis', 1000.00)">Adicionar ao Carrinho</button>
+  </div>
+  <div class="product">
+    <h2>Teclado</h2>
+    <p>Preco: R$ 90,60</p>
+    <button onclick="addToCart(18, 'Teclado', 90.60)">Adicionar ao Carrinho</button>
+  </div>
+  <div class="product">
+    <h2>Dado de pelucia</h2>
+    <p>Preco: R$ 60,00</p>
+    <button onclick="addToCart(19, 'Dado de pelúcia', 60.00)">Adicionar ao Carrinho</button>
+  </div>
+  <div class="product">
+    <h2>Laptop</h2>
+    <p>Preco: R$ 2800,90</p>
+    <button onclick="addToCart(20, 'Laptop', 2800.90)">Adicionar ao Carrinho</button>
+  </div>
+
+
+</div>
+
+<h2>Carrinho de Compras</h2>
+<div id="cart">
+  <ul id="cart-items"></ul>
+  <p>Total: <span id="cart-total">R$ 0,00</span></p>
+  <button onclick="finalizePurchase()">Finalizar Compra</button>
+</div>
+
+<script>
+    let cart = [];
+
+function addToCart(id, name, price) {
+  let item = cart.find(item => item.id === id);
+  if (item) {
+    item.quantity++;
+  } else {
+    cart.push({ id: id, name: name, price: price, quantity: 1 });
+  }
+  updateCart();
+}
+
+function removeFromCart(id) {
+  cart = cart.filter(item => item.id !== id);
+  updateCart();
+}
+
+function updateCart() {
+  let cartItems = document.getElementById('cart-items');
+  cartItems.innerHTML = '';
+  let total = 0;
+  cart.forEach(item => {
+    let listItem = document.createElement('li');
+    listItem.innerHTML = `${item.name} - R$ ${item.price.toFixed(2)} x ${item.quantity} = R$ ${(item.price * item.quantity).toFixed(2)} <button onclick="removeFromCart(${item.id})">Remover</button>`;
+    cartItems.appendChild(listItem);
+    total += item.price * item.quantity;
+  });
+  document.getElementById('cart-total').innerText = `R$ ${total.toFixed(2)}`;
+}
+
+
+function finalizePurchase() {
+  if (cart.length === 0) {
+    alert("Seu carrinho está vazio!");
+    return;
+  }
+
+  let data = { cart: cart };
+  fetch('banco.php', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  .then(response => response.text())
+  .then(data => {
+    alert(data);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert('Erro ao finalizar a compra. Tente novamente.');
+  });
+
+}
+</script> 
+</body>
+</html>
